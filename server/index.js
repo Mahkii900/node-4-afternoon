@@ -17,6 +17,7 @@ app.use(session({
     saveUninitialized: true
 }))
 app.use(checkSession)
+app.use(express.static(`${__dirname}/../build`))
 
 //-----------ENDPOINTS--------------
 //AUTH

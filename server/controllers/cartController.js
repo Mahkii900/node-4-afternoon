@@ -22,10 +22,11 @@ module.exports = {
         let {user} = req.session
 
         let index = user.cart.findIndex(swag => swag.id == id)
+        let selectSwag = swag.find(swag => swag.id == id)
 
         if (index !== -1) {
-            user.total -= swag[index].price
             user.cart.splice(index, 1)
+            user.total -= selectSwag.price
         }
 
         res.status(200).send(user)
